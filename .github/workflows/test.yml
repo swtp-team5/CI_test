@@ -5,8 +5,8 @@ on:
   # Runs on pushes targeting the default branch
   push:
     branches: ["main"]
-      paths-ignore:
-      - 'Documentation/**'
+    paths-ignore:
+    - 'Documentation/**'
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -25,9 +25,12 @@ concurrency:
 jobs:
   # Test job
   test:
+    runs-on: ubuntu-latest
     steps:
       - name: test message
         run: echo "Running tests..."
+          echo `${{ steps.deployment.outputs.page_url }}`
+
 
   # Build job
   build:
@@ -55,6 +58,5 @@ jobs:
     needs: build
     steps:
       - name: Deploy to GitHub Pages
-        run: echo `${{ steps.deployment.outputs.page_url }}`
         id: deployment
         uses: actions/deploy-pages@v1

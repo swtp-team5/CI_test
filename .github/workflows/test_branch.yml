@@ -3,7 +3,7 @@ name: test branch
 
 on:
   # Runs on pushes targeting the default branch
-  pull-request:
+  pull_request:
     branches-ignore: [main]
     paths-ignore:
     - 'Documentation/**'

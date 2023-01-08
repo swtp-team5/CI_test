@@ -30,10 +30,8 @@ jobs:
     steps:
       - name: test message
         run: |
-          echo "Running tests on branch ${{GITHUB_REF##*/}}..."
-          echo "${{ steps.deployment.outputs.page_url }}"
-
-
+          echo "Running tests on branch..."
+          echo "second line"
   # Build job
   build:
     needs: test
@@ -50,15 +48,3 @@ jobs:
           destination: ./_site
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
-
-  # Deployment job
-  deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }{GITHUB_REF##*/}}
-    runs-on: ubuntu-latest
-    needs: build
-    steps:
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v1

@@ -30,8 +30,8 @@ jobs:
     steps:
       - name: test message
         run: |
-          echo "Running tests on branch ${GITHUB_REF##*/}..."
-          echo "${ steps.deployment.outputs.page_url }"
+          echo "Running tests on branch..."
+          echo "second line"
 
 
   # Build job
@@ -55,7 +55,7 @@ jobs:
   deploy:
     environment:
       name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }{GITHUB_REF##*/}}
+      url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     needs: build
     steps:

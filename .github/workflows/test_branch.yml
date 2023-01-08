@@ -30,8 +30,8 @@ jobs:
     steps:
       - name: test message
         run: |
-          echo "Running tests on branch ${{GITHUB_REF##*/}}..."
-          echo "${{ steps.deployment.outputs.page_url }}"
+          echo "Running tests on branch ${GITHUB_REF##*/}..."
+          echo "${ steps.deployment.outputs.page_url }"
 
 
   # Build job

@@ -29,7 +29,7 @@ jobs:
     steps:
       - name: test message
         run: echo "Running tests..."
-          echo `${{ steps.deployment.outputs.page_url }}`
+          echo "${{ steps.deployment.outputs.page_url }}"
 
 
   # Build job

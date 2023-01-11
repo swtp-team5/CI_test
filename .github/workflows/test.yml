@@ -64,6 +64,8 @@ jobs:
     runs-on: ubuntu-latest
     needs: test
     steps:
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v1
+      - name: Deploy
+        run: echo "Deploy to pages ${{ steps.deployment.outputs.page_url }}"
+#       - name: Deploy to GitHub Pages
+#         id: deployment
+#         uses: actions/deploy-pages@v1

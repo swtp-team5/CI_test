@@ -58,14 +58,19 @@ jobs:
 
   # Deployment job
   deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+#     environment:
+#       name: github-pages
+#       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
-    needs: test
+    needs: build
     steps:
-      - name: Deploy
-        run: echo "Deploy to pages ${{ steps.deployment.outputs.page_url }}"
 #       - name: Deploy to GitHub Pages
 #         id: deployment
 #         uses: actions/deploy-pages@v1
+      - name: Deploy to Heroku
+        uses: AkhileshNS/heroku-deploy@v3.12.12
+        with:
+           heroku_api_key: ${{ secrets.HEROKU_API_KEY }}
+           heroku_app_name: 'ci-test'
+           heroku_email: 's73399@bht-berlin.de'
+

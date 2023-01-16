@@ -1,13 +1,3 @@
-// const http = require('http')
-// const fs = require('fs')
-//
-// const server = http.createServer((req, res) => {
-//     res.writeHead(200, { 'content-type': 'text/html' })
-//     fs.createReadStream('../index.html').pipe(res)
-// })
-//
-// server.listen(process.env.PORT || 3000)
-
 const express = require('express');
 const app = express();
 const path = require('path');
@@ -36,7 +26,7 @@ router.get('/praxis',function(req,res){
 
 //add the router
 app.use('/', router);
-app.listen(process.env.port || 3000);
+app.listen(process.env.PORT || 5000);
 
-console.log('Running at Port 3000')
+console.log('Running...')
 

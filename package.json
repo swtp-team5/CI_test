@@ -11,6 +11,7 @@
     "jsqrcode": "^0.0.7"
   },
   "scripts": {
+    "start": "index.html",
     "test": "jest"
   }
 }
